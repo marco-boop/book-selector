@@ -1,29 +1,25 @@
 // src/index.js
 import React from 'react';
-import ReactDOM from 'react-dom/client';
-import App from './App';
-import UserForm from './components/UserForm';
-import UserList from './components/UserList';
-
+import ReactDOM from 'react-dom';
+import AppRoutes from './routes/AppRoutes';
 
 const root = document.getElementById('root');
 
-const renderApp = () => {
-    ReactDOM.createRoot(root).render(
-        <React.StrictMode>
-            <App />
-            <UserList />
-            <UserForm />
-        </React.StrictMode>
-    );
-};
-
-renderApp();
+ReactDOM.createRoot(root).render(
+    <React.StrictMode>
+        <AppRoutes />
+    </React.StrictMode>
+);
 
 // For Hot Module Replacement (HMR) in development
 if (process.env.NODE_ENV === 'development' && module.hot) {
-    module.hot.accept('./App', () => {
-        // Reload the updated App component
-        renderApp();
+    module.hot.accept('./routes/AppRoutes', () => {
+        // Reload the updated AppRoutes component
+        const NextAppRoutes = require('./routes/AppRoutes').default;
+        ReactDOM.createRoot(root).render(
+            <React.StrictMode>
+                <NextAppRoutes />
+            </React.StrictMode>
+        );
     });
 }
