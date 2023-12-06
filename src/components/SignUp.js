@@ -17,7 +17,12 @@ const SignUp = () => {
             await createUserWithEmailAndPassword(auth, email, password);
             console.log('User signed up successfully!');
         } catch (error) {
-            console.error('Error signing up:', error.message);
+            if (error.code === 'auth/email-already-in-use') {
+                console.error('Email is already in use. Please sign in or use a different email.');
+            }
+            else {
+                console.error('Other error signing up:', error.message);
+            }
         }
     };
 

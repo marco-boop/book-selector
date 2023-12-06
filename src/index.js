@@ -1,27 +1,25 @@
-// src/index.js
 import React from 'react';
 import ReactDOM from 'react-dom';
-import App from './App';
+import { StrictMode } from 'react';
+import { BrowserRouter } from 'react-router-dom';
 import AppRoutes from './routes/AppRoutes';
+import App from './App';
 
-const root = document.getElementById('root');
+const root = ReactDOM.createRoot(document.getElementById('root'));
 
-ReactDOM.createRoot(root).render(
+root.render(
     <React.StrictMode>
-        <App />
-        <AppRoutes />
+        <BrowserRouter>
+            <App />
+        </BrowserRouter>
     </React.StrictMode>
 );
 
 // For Hot Module Replacement (HMR) in development
-if (process.env.NODE_ENV === 'development' && module.hot) {
-    module.hot.accept('./routes/AppRoutes', () => {
-        // Reload the updated AppRoutes component
-        const NextAppRoutes = require('./routes/AppRoutes').default;
-        ReactDOM.createRoot(root).render(
-            <React.StrictMode>
-                <NextAppRoutes />
-            </React.StrictMode>
-        );
-    });
-}
+// if (process.env.NODE_ENV === 'development' && module.hot) {
+//     module.hot.accept('./routes/AppRoutes', () => {
+//         // Reload the updated AppRoutes component
+//         const NextAppRoutes = require('./routes/AppRoutes').default;
+//         render(NextAppRoutes);
+//     });
+// }
