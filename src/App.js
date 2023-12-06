@@ -1,5 +1,5 @@
 // src/App.js
-import React, { useState, useEffect } from 'react';
+import React, { useEffect } from 'react';
 import { getAuth, onAuthStateChanged } from 'firebase/auth';
 import firebaseApp from './firebase';
 import { Routes, Route } from 'react-router-dom';
@@ -21,6 +21,8 @@ const MyProvider = ({ children }) => {
         </MyContext.Provider>
     );
 };
+
+export { MyContext, MyProvider };
 
 const App = () => {
     // Use the context inside the App component
