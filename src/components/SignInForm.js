@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { getAuth, signInWithEmailAndPassword } from 'firebase/auth';
 import firebaseApp from '../firebase';
+import Button from '../components/MaterialUI/Button';
 
 const SignInForm = () => {
     const [email, setEmail] = useState('');
@@ -29,7 +30,7 @@ const SignInForm = () => {
             <label>Password:</label>
             <input type="password" value={password} onChange={(e) => setPassword(e.target.value)} />
 
-            <button onClick={handleSignIn}>Sign In</button>
+            <Button onClick={handleSignIn}>Sign In</Button>
         </div>
     );
 };

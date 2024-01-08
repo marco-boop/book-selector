@@ -2,6 +2,7 @@
 import React, { useState } from 'react';
 import { getAuth, createUserWithEmailAndPassword } from 'firebase/auth';
 import firebaseApp from '../firebase';
+import Button from '../components/MaterialUI/Button';
 
 const SignUp = () => {
     const [email, setEmail] = useState('');
@@ -37,7 +38,7 @@ const SignUp = () => {
                 <label>Password:   </label>
                 <input type="password" value={password} onChange={(e) => setPassword(e.target.value)} />
             </p>
-            <button onClick={handleSignUp}>Sign Up</button>
+            <Button color="warning" size="small" variant="contained" onClick={handleSignUp}>Sign Up</Button>
         </div>
     );
 };

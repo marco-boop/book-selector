@@ -11,7 +11,7 @@ const HomePage = () => {
     const { state } = useContext(MyContext);
     const uid = state.user?.uid;
     const email = state.user?.email;
-    console.log(uid);
+    // console.log(uid);
 
     return (
         < div >
