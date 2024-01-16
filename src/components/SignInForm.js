@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { getAuth, signInWithEmailAndPassword } from 'firebase/auth';
 import firebaseApp from '../firebase';
-import Button from '../components/MaterialUI/Button';
+import Button from '../styles/MaterialUI/Button';
 
 const SignInForm = () => {
     const [email, setEmail] = useState('');

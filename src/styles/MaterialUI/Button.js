@@ -3,8 +3,10 @@ import { Button as MuiButton } from '@mui/material';
 
 const Button = ({ children, variant = 'contained', color = 'primary', onClick, ...rest }) => {
     const customStyles = {
-        backgroundColor: '#1e024b', // Specify your desired color
-        color: 'white', // Set text color based on your design
+        margin: '8px 16px',
+        backgroundColor: '#023A4E',
+        color: 'white',
+
         // Add any other custom styles as needed
     };
 
@@ -13,6 +15,7 @@ const Button = ({ children, variant = 'contained', color = 'primary', onClick, .
             variant={variant}
             color={color}
             onClick={onClick}
+            style={customStyles}
             {...rest}>
             {children}
         </MuiButton>

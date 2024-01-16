@@ -1,9 +1,19 @@
 /* HomePage.css */
 
+/* 
+
+Indigo dye: #023A4E
+Caffeine-free Pepsi: #E6B021
+Crayola bright pink: #EF476F
+Anti-flash white: #EBEBEB
+White: #FFFFFF
+
+*/
+
 /* Global styles */
 body {
-    font-family: 'Arial', sans-serif;
-    background-color: #f4f4f4;
+    font-family: 'Helvetica', sans-serif;
+    background-color: #EBEBEB;
     color: #333;
     margin: 0;
     padding: 0;
@@ -12,9 +22,9 @@ body {
   
   /* Container styles */
   .container {
-    max-width: 800px;
+    max-width: 80%;
     margin: 0 auto;
-    padding: 20px;
+    padding: 80px;
   }
   
   /* Header styles */
@@ -26,19 +36,4 @@ body {
   form {
     margin-bottom: 20px;
   }
-  
-  /* Button styles */
-  button {
-    background-color: #1e024b;
-    color: #fff;
-    padding: 10px 15px;
-    border: none;
-    cursor: pointer;
-  }
-  
-  button:hover {
-    background-color: #1e024b;
-  }
-  
-  /* ... add more styles as needed */
   
