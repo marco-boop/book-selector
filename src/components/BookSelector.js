@@ -33,18 +33,31 @@ const BookSelector = () => {
             .catch(error => console.error('Error fetching books:', error));
     }, []);
 
-    // Handle category selection
-    const handleCategoryChange = (event) => {
-        const selectedCategory = event.target.value;
-        setSelectedCategory(selectedCategory);
-        setSelectedFilter(''); // Reset selected filter when category changes
+    // // Handle category selection old version
+    // const handleCategoryChange = (event) => {
+    //     const selectedCategory = event.target.value;
+    //     setSelectedCategory(selectedCategory);
+    //     setSelectedFilter(''); // Reset selected filter when category changes
 
-        // Filter books based on the selected category
-        if (selectedCategory === '') {
-            setFilteredBooks(books); // If no category is selected, show all books
+    //     // Filter books based on the selected category
+    //     if (selectedCategory === '') {
+    //         setFilteredBooks(books); // If no category is selected, show all books
+    //     } else {
+    //         const filtered = books.filter(book => book[selectedCategory] === 1);
+    //         setFilteredBooks(filtered);
+    //     }
+    // };
+
+    const handleCategoryClick = (category) => {
+        // Filter books based on the clicked category
+        if (selectedCategory === category) {
+            // If the same category is clicked again, reset the filter
+            setFilteredBooks(books);
+            setSelectedCategory('');
         } else {
-            const filtered = books.filter(book => book[selectedCategory] === 1);
+            const filtered = books.filter(book => book[category] === 1);
             setFilteredBooks(filtered);
+            setSelectedCategory(category);
         }
     };
 
@@ -71,33 +84,75 @@ const BookSelector = () => {
         }
     };
 
+    // return (
+    //     <div>
+    //         {/* Category dropdown */}
+    //         <label>
+    //             Select a category:
+    //             <select value={selectedCategory} onChange={handleCategoryChange}>
+    //                 <option value="">All</option>
+    //                 {columnNames.map(column => (
+    //                     <option key={column} value={column}>
+    //                         {column.replace(/_/g, ' ')} {/* Replace underscores with spaces */}
+    //                     </option>
+    //                 ))}
+    //             </select>
+    //         </label>
+
+    //         {/* Filter dropdown */}
+    //         {selectedCategory && (
+    //             <label>
+    //                 Select a filter:
+    //                 <select value={selectedFilter} onChange={handleFilterChange}>
+    //                     <option value="">All</option>
+    //                     {filterOptions}
+    //                 </select>
+    //             </label>
+    //         )}
+
+    //         {/* Book list or no books found message */}
+    //         {booksFound ? (
+    //             <ul>
+    //                 {filteredBooks.length > 0 ? (
+    //                     filteredBooks.map(book => (
+    //                         <li key={book.id}>
+    //                             <label>
+    //                                 {book.title} by {book.author}
+    //                             </label>
+    //                         </li>
+    //                     ))
+    //                 ) : (
+    //                     <p>No books found</p>
+    //                 )}
+    //             </ul>
+    //         ) : (
+    //             <p>Loading...</p>
+    //         )}
+
     return (
         <div>
-            <h2>Book Selector</h2>
-
-            {/* Category dropdown */}
-            <label>
-                Select a category:
-                <select value={selectedCategory} onChange={handleCategoryChange}>
-                    <option value="">All</option>
-                    {columnNames.map(column => (
-                        <option key={column} value={column}>
-                            {column.replace(/_/g, ' ')} {/* Replace underscores with spaces */}
-                        </option>
+            {/* Category table */}
+            <table>
+                <thead>
+                    <tr>
+                        <th>Category</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {columnNames.map(category => (
+                        <tr key={category} onClick={() => handleCategoryClick(category)}>
+                            <td
+                                style={{
+                                    cursor: 'pointer',
+                                    fontWeight: selectedCategory === category ? 'bold' : 'normal',
+                                }}
+                            >
+                                {category.replace(/_/g, ' ')}
+                            </td>
+                        </tr>
                     ))}
-                </select>
-            </label>
-
-            {/* Filter dropdown */}
-            {selectedCategory && (
-                <label>
-                    Select a filter:
-                    <select value={selectedFilter} onChange={handleFilterChange}>
-                        <option value="">All</option>
-                        {filterOptions}
-                    </select>
-                </label>
-            )}
+                </tbody>
+            </table>
 
             {/* Book list or no books found message */}
             {booksFound ? (
