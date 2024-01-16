@@ -9,6 +9,8 @@ const BookSelector = () => {
     const [selectedFilter, setSelectedFilter] = useState(''); // State to track the selected filter
     const [filteredBooks, setFilteredBooks] = useState([]); // State to store filtered books
     const [columnNames, setColumnNames] = useState([]); // State to store column names
+    const [booksFound, setBooksFound] = useState(true); // Did we find any books
+
 
     useEffect(() => {
         // Fetch books data from your server
@@ -25,6 +27,8 @@ const BookSelector = () => {
                     const filteredColumns = columns.filter(column => !['id', 'author', 'title'].includes(column));
                     setColumnNames(filteredColumns);
                 }
+                // Set initial value for booksFound
+                setBooksFound(response.data.length > 0);
             })
             .catch(error => console.error('Error fetching books:', error));
     }, []);
@@ -95,17 +99,25 @@ const BookSelector = () => {
                 </label>
             )}
 
-            {/* Book list */}
-            <ul>
-                {filteredBooks.map(book => (
-                    <li key={book.id}>
-                        <label>
-                            <input type="checkbox" value={book.id} />
-                            {book.title} by {book.author}
-                        </label>
-                    </li>
-                ))}
-            </ul>
+            {/* Book list or no books found message */}
+            {booksFound ? (
+                <ul>
+                    {filteredBooks.length > 0 ? (
+                        filteredBooks.map(book => (
+                            <li key={book.id}>
+                                <label>
+                                    {book.title} by {book.author}
+                                </label>
+                            </li>
+                        ))
+                    ) : (
+                        <p>No books found</p>
+                    )}
+                </ul>
+            ) : (
+                <p>Loading...</p>
+            )}
+
             {/* Add additional UI elements or logic as needed */}
             <Link to="/">Go back to Homepage</Link>
         </div>

@@ -1,0 +1,44 @@
+/* HomePage.css */
+
+/* Global styles */
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f4f4f4;
+    color: #333;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  /* Container styles */
+  .container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+  }
+  
+  /* Header styles */
+  h1 {
+    color: #1e024b;
+  }
+  
+  /* Sign-in/sign-up form styles */
+  form {
+    margin-bottom: 20px;
+  }
+  
+  /* Button styles */
+  button {
+    background-color: #1e024b;
+    color: #fff;
+    padding: 10px 15px;
+    border: none;
+    cursor: pointer;
+  }
+  
+  button:hover {
+    background-color: #1e024b;
+  }
+  
+  /* ... add more styles as needed */
+  
