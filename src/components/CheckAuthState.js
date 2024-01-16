@@ -5,7 +5,7 @@ import firebaseApp from '../firebase';
 import SignUp from '../components/SignUp';
 import SignInForm from '../components/SignInForm';
 import SignOutButton from '../components/SignOut';
-import { Link } from 'react-router-dom';
+// import { Link } from 'react-router-dom';
 import BookSelector from '../components/BookSelector';
 
 

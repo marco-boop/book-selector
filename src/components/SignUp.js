@@ -29,13 +29,10 @@ const SignUp = () => {
 
     return (
         <div>
-            <h3>Sign Up</h3>
             <p>
-                <label>Email:   </label>
+                <label>Email:     </label>
                 <input type="email" value={email} onChange={(e) => setEmail(e.target.value)} />
-            </p>
-            <p>
-                <label>Password:   </label>
+                <label>     Password:     </label>
                 <input type="password" value={password} onChange={(e) => setPassword(e.target.value)} />
             </p>
             <Button variant="contained" onClick={handleSignUp}>Sign Up</Button>

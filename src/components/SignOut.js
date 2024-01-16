@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import { getAuth, signOut } from 'firebase/auth';
 import firebaseApp from '../firebase';
+import Button from '../styles/MaterialUI/Button';
+
 
 // Assuming you have initialized Firebase as firebaseApp
 //Commenting out because I already did this on signup
@@ -21,9 +23,9 @@ const SignOutButton = () => {
     };
 
     return (
-        <button onClick={() => handleSignOut()}>
+        <Button onClick={() => handleSignOut()}>
             Sign Out
-        </button>
+        </Button>
     );
 };
 

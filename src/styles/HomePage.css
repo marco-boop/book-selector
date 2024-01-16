@@ -14,7 +14,6 @@ White: #FFFFFF
 body {
     font-family: 'Helvetica', sans-serif;
     background-color: #EBEBEB;
-    color: #333;
     margin: 0;
     padding: 0;
     box-sizing: border-box;
@@ -24,7 +23,7 @@ body {
   .container {
     max-width: 80%;
     margin: 0 auto;
-    padding: 80px;
+    padding: 25px;
   }
   
   /* Header styles */

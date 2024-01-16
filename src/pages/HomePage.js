@@ -1,35 +1,19 @@
 import React, { useContext } from 'react';
-import SignInForm from '../components/SignInForm';
-import SignOutButton from '../components/SignOut';
 import BookSelector from '../components/BookSelector';
-import SignUp from '../components/SignUp';
 import { MyContext } from '../App';
 import '../styles/HomePage.css';
+import Header from '../components/Header';
 
 const HomePage = () => {
-    // console.log("This is the Home Page function");
-
-    const { state } = useContext(MyContext);
-    const uid = state.user?.uid;
-    const email = state.user?.email;
-    // console.log(uid);
-
     return (
-        < div className='container'>
+        <div className='container'>
+            <Header />
             <h1>The Glottal Stop</h1>
-            {uid ? (
-                <p>You are signed in: {uid} - {email}
-                    <BookSelector />
-                    <SignOutButton />
-                </p>
-            ) : (
-                <p>Sign in or sign up below:<br></br>
-                    <SignInForm />
-                    <SignUp />
-                </p>
-            )
-            }
-        </div >
+            {/* <div>
+                <p>Content specific to the homepage</p>
+                <BookSelector />
+            </div> */}
+        </div>
     );
 };
 

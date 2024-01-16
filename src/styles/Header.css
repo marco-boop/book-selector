@@ -1,0 +1,16 @@
+/* Header.css */
+.header {
+    display: flex;
+    /* align-items: center; */
+    justify-content: flex-end;
+}
+
+/* Header.css */
+.signup-link {
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+.signup-link:hover {
+    color: #EF476F;
+}
